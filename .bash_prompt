@@ -22,17 +22,3 @@ BWHT="\[\033[47m\]" # background white
 
 #My BASH prompt
 PS1="$HC$FRED\u$FBLE: \W$ $RS"
-
-#Coloured File/Directory Listings
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-
-# Add tab completion for many Bash commands
-if which brew > /dev/null && [ -f "$(brew --prefix)/etc/bash_completion" ]; then
-        source "$(brew --prefix)/etc/bash_completion";
-elif [ -f /etc/bash_completion ]; then
-        source /etc/bash_completion;
-fi;
-
-# Add tab completion for SSH hostnames based on /etc/ssh_config, ignoring wildcards OVERRIDES HOST COMPLETION
-#[ -e "/etc/ssh_config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" /etc/ssh_config | grep -v "[?*]" | cut -d " " -f2 | tr ' ' '\n')" scp sftp ssh;
